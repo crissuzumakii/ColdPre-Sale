@@ -22,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
     TextView TextviewHead;
     FirebaseAuth mAuth;
 
-Button siguiente;
+    Button siguiente;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,3 +1,50 @@
 <resources>
     <string name="app_name">ColdPre-Sale</string>
+    <array name="spnTipoEmpleado">
+        <item>Jefe de Area</item>
+        <item>Supervisor</item>
+        <item>Conductor</item>
+        <item>Auxiliar</item>
+    </array>
+    <array name="spnTipoLicencia">
+        <item>Clase B</item>
+        <item>Clase A4</item>
+    </array>
+    <array name="spnPolar">
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </array>
+    <array name="spnZapatos">
+        <item>"39"</item>
+        <item>"40"</item>
+        <item>"41"</item>
+        <item>"42"</item>
+        <item>"43"</item>
+        <item>"44"</item>
+    </array>
+    <array name="spnPantalon">
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </array>
+    <array name="spnPolera">
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </array>
+    <array name="spnCasaca">
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </array>
+
 </resources>
