@@ -3,6 +3,7 @@ package com.example.coldpre_sale;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,8 +23,8 @@ public class CrearEmpleadoActivity extends AppCompatActivity {
     private Spinner spnTipoEmpleado, spnTipoLicencia,spnPolar,spnZapatos,spnPantalon,spnPolera,spnCasaca;
     private EditText etNombres,etApellidos,etRun,etNacimiento,etVenceLicencia;
     private ImageView imgvLicencia,imgvPerfil;
-    private Button btnFotoLicencia,btnFotoPerfil,btnCrear;
-    DatabaseReference empleadoDbref;
+    private Button btnFotoLicencia,btnFotoPerfil,btnCrear, btnIrMenu;
+    DatabaseReference empleadoDbref;// Referencia la ubicacion de la base de datos
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,28 +47,33 @@ public class CrearEmpleadoActivity extends AppCompatActivity {
         btnFotoLicencia= findViewById(R.id.btnFotoLicencia);
         btnFotoPerfil= findViewById(R.id.btnFotoPerfil);
         btnCrear=findViewById(R.id.btnCrear);
+        btnIrMenu= findViewById(R.id.btnIrMenu);
 
+        //empleadoDbref apunta a la ubicación “Empleado” en la base de datos Firebase.
+        // empleadoDbref para leer o escribir datos en esa ubicación.
+        // crearEmpleadoData(), usas empleadoDbref para guardar un nuevo empleado en la base de datos
         empleadoDbref= FirebaseDatabase.getInstance().getReference().child("Empleado");
 
+        btnIrMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CrearEmpleadoActivity.this,MenuActivity.class);
+                startActivity(i);
+            }
+        });
         btnCrear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 crearEmpleadoData();
             }
         });
+
+
     }
-    /*public void mostrarCalendario(View v){
-        DatePickerDialog d= new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                etNacimiento.setText(dayOfMonth+"/"+(month+1)+"/"+year);
-            }
-        },2022,0,1);
-        d.show();
-    }*/
 
     private void crearEmpleadoData(){
 
+        // Si estan vacios los Campos
         if (etNacimiento.getText().toString().trim().isEmpty()||etRun.getText().toString().trim().isEmpty()||
                 etApellidos.getText().toString().trim().isEmpty()||etNombres.getText().toString().trim().isEmpty()||
                 etVenceLicencia.getText().toString().trim().isEmpty()||spnTipoEmpleado.getSelectedItem().toString().trim().isEmpty()||
@@ -75,14 +82,15 @@ public class CrearEmpleadoActivity extends AppCompatActivity {
                 spnPantalon.getSelectedItem().toString().trim().isEmpty()||spnZapatos.getSelectedItem().toString().trim().isEmpty()){
 
             ocultarTeclado();
-            Toast.makeText(CrearEmpleadoActivity.this,"Complete todos los Campos",Toast.LENGTH_SHORT).show();
+            Toast.makeText(CrearEmpleadoActivity.this,"ERROR!! Complete todos los Campos",Toast.LENGTH_SHORT).show();
 
+            //Si los campos estan llenos
         } else {
             String tipoEmpleado= ((String) spnTipoEmpleado.getSelectedItem()).toString();
             String nombres= etNombres.getText().toString();
             String apellidos= etApellidos.getText().toString();
             String run= etRun.getText().toString();
-            String venceLicencia= etVenceLicencia.getText().toString();
+            String vencimientoLicencia= etVenceLicencia.getText().toString();
             String fechaNacimiento= etNacimiento.getText().toString();
             String tipoLicencia= ((String) spnTipoLicencia.getSelectedItem()).toString();
             String tallaPolar= ((String) spnPolar.getSelectedItem()).toString();
@@ -90,19 +98,23 @@ public class CrearEmpleadoActivity extends AppCompatActivity {
             String tallaPantalon= ((String) spnPantalon.getSelectedItem()).toString();
             String tallaPolera= ((String) spnPolera.getSelectedItem()).toString();
             String tallaCasaca= ((String) spnCasaca.getSelectedItem()).toString();
-
-            Empleado empleado = new Empleado(tipoEmpleado,nombres,apellidos,run,fechaNacimiento,
+            //si estan todos lo campos llenos, se crea el objeto
+            Empleado empleado = new Empleado(tipoEmpleado,nombres,apellidos,run,vencimientoLicencia,fechaNacimiento,
                     tipoLicencia,tallaPolar,tallaZapatos,tallaPantalon,tallaPolera,tallaCasaca);
 
-            empleadoDbref.push().setValue(empleado);
-            Toast.makeText(CrearEmpleadoActivity.this,"Empleado fue creado",Toast.LENGTH_SHORT).show();
+            empleadoDbref.push().setValue(empleado);// Aqui hace la insercion de datos pasando el objeto
+            Toast.makeText(CrearEmpleadoActivity.this,"Empleado fue creado Correctamente",Toast.LENGTH_SHORT).show();
 
             //Dejar input vacios
-
+            etNombres.setText("");
+            etApellidos.setText("");
+            etRun.setText("");
+            etNacimiento.setText("");
+            etVenceLicencia.setText("");
         }
 
-
     }//Termina btn Crear
+
     private void ocultarTeclado(){
         View view=this.getCurrentFocus();
         if (view !=null){
@@ -110,4 +122,5 @@ public class CrearEmpleadoActivity extends AppCompatActivity {
             imm.hideSoftInputFromWindow(view.getWindowToken(),0);
         }
     }
+
 }

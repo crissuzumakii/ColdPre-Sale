@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -70,6 +71,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(String emailUsuario, String contraseñaUsuario) {
+        if (TextUtils.isEmpty(contraseñaUsuario)) {
+            Toast.makeText(this, "Debe ingresar una contraseña", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        // Validar longitud de la contraseña (mínimo 6, máximo 8 caracteres)
+        if (contraseñaUsuario.length() < 6 || contraseñaUsuario.length() > 8) {
+            Toast.makeText(this, "La contraseña debe tener entre 6 y 8 caracteres", Toast.LENGTH_SHORT).show();
+            return;
+        }
         mAuth.signInWithEmailAndPassword(emailUsuario, contraseñaUsuario).addOnCompleteListener
                 (new OnCompleteListener<AuthResult>() {
                     @Override

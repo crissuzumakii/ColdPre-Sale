@@ -78,7 +78,7 @@
 
     <Button
         android:id="@+id/btnCrear"
-        android:layout_width="138dp"
+        android:layout_width="120dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/white"
         android:text="Crear"
@@ -86,10 +86,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956" />
+        app:layout_constraintVertical_bias="0.96" />
 
     <EditText
         android:id="@+id/etNacimiento"
@@ -383,5 +383,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnIrMenu"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/white"
+        android:text="Menu"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.662"
+        app:layout_constraintStart_toEndOf="@+id/btnCrear" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
