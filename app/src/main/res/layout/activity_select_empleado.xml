@@ -136,7 +136,7 @@
         app:layout_constraintVertical_bias="0.512" />
 
     <Button
-        android:id="@+id/botoneditar"
+        android:id="@+id/btnEditar"
         android:layout_width="140dp"
         android:layout_height="45dp"
         android:backgroundTint="#EDE5E5"
@@ -150,7 +150,7 @@
         app:layout_constraintVertical_bias="0.817" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btGuardar"
         android:layout_width="140dp"
         android:layout_height="45dp"
         android:backgroundTint="#EFDFDF"
@@ -164,7 +164,7 @@
         app:layout_constraintVertical_bias="0.897" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnEliminar"
         android:layout_width="140dp"
         android:layout_height="45dp"
         android:backgroundTint="#F1E5E5"
@@ -178,7 +178,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <Button
-        android:id="@+id/botonasignarepp"
+        android:id="@+id/btnAsignarEpp"
         android:layout_width="140dp"
         android:layout_height="45dp"
         android:backgroundTint="#EAE2E2"
@@ -264,7 +264,7 @@
         app:layout_constraintVertical_bias="0.677" />
 
     <EditText
-        android:id="@+id/edittexttipoempleado"
+        android:id="@+id/et_tipoEmpleado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
@@ -278,35 +278,35 @@
         app:layout_constraintVertical_bias="0.172" />
 
     <EditText
-        android:id="@+id/edittextnombres"
+        android:id="@+id/et_nombres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/edittextvencimientolicencia"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.224" />
 
     <EditText
-        android:id="@+id/edittextapellidos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/et_apellidos"
+        android:layout_width="206dp"
+        android:layout_height="28dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/edittextvencimientolicencia"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.278" />
+        app:layout_constraintVertical_bias="0.274" />
 
     <EditText
-        android:id="@+id/edittextrut"
+        android:id="@+id/et_rut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
@@ -320,7 +320,7 @@
         app:layout_constraintVertical_bias="0.339" />
 
     <EditText
-        android:id="@+id/edittextfechanacimiento"
+        android:id="@+id/et_fechaNacimiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
@@ -334,7 +334,7 @@
         app:layout_constraintVertical_bias="0.4" />
 
     <EditText
-        android:id="@+id/edittextlicenciaconducir"
+        android:id="@+id/et_licenciaConducir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
@@ -348,7 +348,7 @@
         app:layout_constraintVertical_bias="0.458" />
 
     <EditText
-        android:id="@+id/edittextvencimientolicencia"
+        android:id="@+id/et_vencimientoLicencia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
@@ -362,7 +362,7 @@
         app:layout_constraintVertical_bias="0.516" />
 
     <EditText
-        android:id="@+id/edittextpolar"
+        android:id="@+id/et_polar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="#FFFFFF"
@@ -376,7 +376,7 @@
         app:layout_constraintVertical_bias="0.688" />
 
     <EditText
-        android:id="@+id/edittextzapatos"
+        android:id="@+id/et_zapatos"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="#FFFFFF"
@@ -390,7 +390,7 @@
         app:layout_constraintVertical_bias="0.688" />
 
     <EditText
-        android:id="@+id/edittextpolera"
+        android:id="@+id/et_polera"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="#FFFFFF"
@@ -404,7 +404,7 @@
         app:layout_constraintVertical_bias="0.688" />
 
     <EditText
-        android:id="@+id/edittextpantalon"
+        android:id="@+id/et_pantalon"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="#FFFFFF"
@@ -418,7 +418,7 @@
         app:layout_constraintVertical_bias="0.688" />
 
     <EditText
-        android:id="@+id/edittextcasaca"
+        android:id="@+id/et_casaca"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="#FFFFFF"

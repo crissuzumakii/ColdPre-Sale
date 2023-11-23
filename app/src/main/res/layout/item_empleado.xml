@@ -1,0 +1,30 @@
+<!-- res/layout/item_empleado.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/tvNombres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombres: " />
+
+    <TextView
+        android:id="@+id/tvApellidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apellidos: " />
+
+    <TextView
+        android:id="@+id/tvRut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rut: " />
+
+
+
+</LinearLayout>

@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText correoLogin;
     EditText contrasenaLogin;
     Button botonLogin;
-     FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
 
 
     @Override
@@ -44,24 +44,24 @@ public class LoginActivity extends AppCompatActivity {
         botonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              String emailUsuario = correoLogin.getText().toString().trim();
-              String contrasenaUsuario= contrasenaLogin.getText().toString().trim();
+                String emailUsuario = correoLogin.getText().toString().trim();
+                String contrasenaUsuario= contrasenaLogin.getText().toString().trim();
 
-              if (emailUsuario.isEmpty() && contrasenaUsuario.isEmpty()){
-                  Toast.makeText(LoginActivity.this,"Ingrese todos los datos",Toast.LENGTH_SHORT).show();
-              }else{
-                  loginUser(emailUsuario,contrasenaUsuario);
-              }
+                if (emailUsuario.isEmpty() && contrasenaUsuario.isEmpty()){
+                    Toast.makeText(LoginActivity.this,"Ingrese todos los datos",Toast.LENGTH_SHORT).show();
+                }else{
+                    loginUser(emailUsuario,contrasenaUsuario);
+                }
             }
         });
- 
+
 
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent i = new Intent(LoginActivity.this,RegistroActivity.class);
-                 startActivity(i);
+                startActivity(i);
             }
         });
         siguiente =(Button)findViewById(R.id.botoningresar);
@@ -71,15 +71,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(String emailUsuario, String contraseñaUsuario) {
+
         if (TextUtils.isEmpty(contraseñaUsuario)) {
             Toast.makeText(this, "Debe ingresar una contraseña", Toast.LENGTH_SHORT).show();
             return;
         }
+
         // Validar longitud de la contraseña (mínimo 6, máximo 8 caracteres)
         if (contraseñaUsuario.length() < 6 || contraseñaUsuario.length() > 8) {
             Toast.makeText(this, "La contraseña debe tener entre 6 y 8 caracteres", Toast.LENGTH_SHORT).show();
             return;
         }
+
         mAuth.signInWithEmailAndPassword(emailUsuario, contraseñaUsuario).addOnCompleteListener
                 (new OnCompleteListener<AuthResult>() {
                     @Override
@@ -99,4 +102,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

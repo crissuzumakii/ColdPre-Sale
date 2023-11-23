@@ -12,8 +12,8 @@ public class Empleado implements Parcelable {
     String apellidos;
     String run;
     String fechaNacimiento;
-    String vencimientoLicencia;
     String tipoLicencia;
+    String vencimientoLicencia;
     String tallaPolar;
     String tallaZapatos;
     String tallaPantalon;
@@ -23,20 +23,118 @@ public class Empleado implements Parcelable {
     public Empleado() {
     }
 
-    public Empleado(String tipoEmpleado, String nombres, String apellidos, String run, String fechaNacimiento,
-                    String vencimientoLicencia, String tipoLicencia, String tallaPolar, String tallaZapatos,
+    public Empleado(String tipoEmpleado, String nombres, String apellidos, String run,
+                    String fechaNacimiento, String tipoLicencia, String vencimientoLicencia, String tallaPolar, String tallaZapatos,
                     String tallaPantalon, String tallaPolera, String tallaCasaca) {
         this.tipoEmpleado = tipoEmpleado;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.run = run;
         this.fechaNacimiento = fechaNacimiento;
-        this.vencimientoLicencia = vencimientoLicencia;
         this.tipoLicencia = tipoLicencia;
+        this.vencimientoLicencia = vencimientoLicencia;
         this.tallaPolar = tallaPolar;
         this.tallaZapatos = tallaZapatos;
         this.tallaPantalon = tallaPantalon;
         this.tallaPolera = tallaPolera;
+        this.tallaCasaca = tallaCasaca;
+    }
+
+    public String getTipoEmpleado() {
+        return tipoEmpleado;
+    }
+
+    public void setTipoEmpleado(String tipoEmpleado) {
+        this.tipoEmpleado = tipoEmpleado;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getRun() {
+        return run;
+    }
+
+    public void setRun(String run) {
+        this.run = run;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getTipoLicencia() {
+        return tipoLicencia;
+    }
+
+    public void setTipoLicencia(String tipoLicencia) {
+        this.tipoLicencia = tipoLicencia;
+    }
+
+    public String getVencimientoLicencia() {
+        return vencimientoLicencia;
+    }
+
+    public void setVencimientoLicencia(String vencimientoLicencia) {
+        this.vencimientoLicencia = vencimientoLicencia;
+    }
+
+
+
+    public String getTallaPolar() {
+        return tallaPolar;
+    }
+
+    public void setTallaPolar(String tallaPolar) {
+        this.tallaPolar = tallaPolar;
+    }
+
+    public String getTallaZapatos() {
+        return tallaZapatos;
+    }
+
+    public void setTallaZapatos(String tallaZapatos) {
+        this.tallaZapatos = tallaZapatos;
+    }
+
+    public String getTallaPantalon() {
+        return tallaPantalon;
+    }
+
+    public void setTallaPantalon(String tallaPantalon) {
+        this.tallaPantalon = tallaPantalon;
+    }
+
+    public String getTallaPolera() {
+        return tallaPolera;
+    }
+
+    public void setTallaPolera(String tallaPolera) {
+        this.tallaPolera = tallaPolera;
+    }
+
+    public String getTallaCasaca() {
+        return tallaCasaca;
+    }
+
+    public void setTallaCasaca(String tallaCasaca) {
         this.tallaCasaca = tallaCasaca;
     }
 
@@ -48,8 +146,8 @@ public class Empleado implements Parcelable {
                 ", apellidos='" + apellidos + '\'' +
                 ", run='" + run + '\'' +
                 ", fechaNacimiento='" + fechaNacimiento + '\'' +
-                ", vencimientoLicencia='" + vencimientoLicencia + '\'' +
                 ", tipoLicencia='" + tipoLicencia + '\'' +
+                ". vencimientoLicencia='" + vencimientoLicencia + '\'' +
                 ", tallaPolar='" + tallaPolar + '\'' +
                 ", tallaZapatos='" + tallaZapatos + '\'' +
                 ", tallaPantalon='" + tallaPantalon + '\'' +
@@ -70,8 +168,8 @@ public class Empleado implements Parcelable {
         dest.writeString(this.apellidos);
         dest.writeString(this.run);
         dest.writeString(this.fechaNacimiento);
-        dest.writeString(this.vencimientoLicencia);
         dest.writeString(this.tipoLicencia);
+        dest.writeString(this.vencimientoLicencia);
         dest.writeString(this.tallaPolar);
         dest.writeString(this.tallaZapatos);
         dest.writeString(this.tallaPantalon);
@@ -85,8 +183,8 @@ public class Empleado implements Parcelable {
         this.apellidos = source.readString();
         this.run = source.readString();
         this.fechaNacimiento = source.readString();
-        this.vencimientoLicencia = source.readString();
         this.tipoLicencia = source.readString();
+        this.vencimientoLicencia = source.readString();
         this.tallaPolar = source.readString();
         this.tallaZapatos = source.readString();
         this.tallaPantalon = source.readString();
@@ -100,8 +198,8 @@ public class Empleado implements Parcelable {
         this.apellidos = in.readString();
         this.run = in.readString();
         this.fechaNacimiento = in.readString();
-        this.vencimientoLicencia = in.readString();
         this.tipoLicencia = in.readString();
+        this.vencimientoLicencia = in.readString();
         this.tallaPolar = in.readString();
         this.tallaZapatos = in.readString();
         this.tallaPantalon = in.readString();
@@ -109,7 +207,7 @@ public class Empleado implements Parcelable {
         this.tallaCasaca = in.readString();
     }
 
-    public static final Creator<Empleado> CREATOR = new Creator<Empleado>() {
+    public static final Parcelable.Creator<Empleado> CREATOR = new Parcelable.Creator<Empleado>() {
         @Override
         public Empleado createFromParcel(Parcel source) {
             return new Empleado(source);
